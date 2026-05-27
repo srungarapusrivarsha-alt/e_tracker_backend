@@ -1,13 +1,27 @@
 from fastapi import FastAPI
 import mysql.connector
-conn_obj=mysql.connector.connect(
-    host="localhost",
-    user="root",
-    database="expense_tracker",
-    password="admin123"
-)
-cursor_obj=conn_obj.cursor(dictionary=True)
+from fastapi.middleware.cors import CORSMiddleware
+import os
+
 app = FastAPI()
+# ======================================================
+# CORS POLICY
+# ======================================================
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],     # Allow All Frontends
+    allow_credentials=True,
+    allow_methods=["*"],     # GET, POST, PUT, DELETE
+    allow_headers=["*"]
+)
+conn_obj = mysql.connector.connect(
+    host=os.getenv("db_host"),
+    user=os.getenv("db_user"),
+    password=os.getenv("db_password"),
+    database=os.getenv("db_name"),
+    port=int(os.getenv("db_port"))
+)
+cursor_obj = conn_obj.cursor(dictionary=True)
 cursor_obj.execute("""
 CREATE TABLE IF NOT EXISTS expenses(
     expense_id INT PRIMARY KEY AUTO_INCREMENT,
