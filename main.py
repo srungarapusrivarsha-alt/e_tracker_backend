@@ -4,14 +4,12 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 
 app = FastAPI()
-# ======================================================
-# CORS POLICY
-# ======================================================
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],     # Allow All Frontends
+    allow_origins=["*"],     
     allow_credentials=True,
-    allow_methods=["*"],     # GET, POST, PUT, DELETE
+    allow_methods=["*"],     
     allow_headers=["*"]
 )
 conn_obj = mysql.connector.connect(

@@ -1,0 +1,74 @@
+Expense Tracker Application – Product Documentation
+
+1.Project Overview:--
+The Expense Tracker Application is a full-stack web application used to manage daily expenses. 
+Users can add, view, update, delete, search, sort, filter, and analyze expenses easily.
+
+The project is developed using:
+Python
+Streamlit (Frontend)
+FastAPI (Backend)
+MySQL (Database)
+
+2.Features:
+Add Expenses
+View Expenses
+Update Expenses
+Delete Expenses
+Search Expenses by Category
+Sort Expenses
+Filter Expenses
+Expense Analysis using Line Chart
+
+3.Technologies used
+Technology and Purpose:
+Python--->	Used as the core programming language for application development
+Streamlit--->	Used to build the interactive frontend user interface
+FastAPI	--->Used to develop backend REST APIs
+MySQL--->	Used to store and manage expense data
+Pandas--->	Used for data processing and displaying tabular data
+Requests Library--->	Used for frontend and backend API communication
+Uvicorn--->Used to run the FastAPI backend server
+
+4.System Architecture:
+User
+↓
+Streamlit Frontend (User Interface)
+↓
+Requests Library (API Calls)
+↓
+FastAPI Backend (REST APIs)
+↓
+MySQL Database (Data Storage)
+
+5.Database Table:expenses
+Column Name	Data Type
+expense_id	INT
+title	VARCHAR
+amount	FLOAT
+category	VARCHAR
+created_at	TIMESTAMP
+
+6.API Endpoints:
+| Method | Endpoint              | Purpose                               |
+| ------ | --------------------- | ------------------------------------- |
+| POST   | /add_expense          | Used to add a new expense record      |
+| GET    | /ViewExpenses         | Used to retrieve all expense records  |
+| PUT    | /update_expense/{id}  | Used to update an existing expense    |
+| DELETE | /delete_expenses/{id} | Used to delete an expense record      |
+| GET    | /search_expenses      | Used to search expenses by category   |
+| GET    | /sort_expenses        | Used to sort expenses based on amount |
+| GET    | /filter_expenses      | Used to filter expenses by amount     |
+
+7.Advantages:
+Simple UI
+Easy expense management
+Fast performance
+Real-time data handling
+Expense visualization
+
+8.Conclusion
+
+The Expense Tracker Application helps users efficiently track and manage expenses using a 
+simple and interactive interface. The project demonstrates frontend-backend integration using
+Streamlit, FastAPI, and MySQL.
